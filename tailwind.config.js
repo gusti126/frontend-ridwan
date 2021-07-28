@@ -4,8 +4,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "hijau-button": "#00731C",
-        "hijau-header": "#45A298",
+        "hijau-custom": "#38B0A9",
       },
       fontFamily: {
         poppins: ["Poppins"],

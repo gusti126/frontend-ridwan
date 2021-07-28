@@ -21,5 +21,635 @@
 
     <title>Starter tailwindcss</title>
   </head>
-  <body class="font-poppins bg-green-50"></body>
+  <body class="font-poppins">
+    <!-- navbar -->
+    <div
+      class="
+        w-full
+        text-gray-700
+        bg-white
+        dark-mode:text-gray-200 dark-mode:bg-gray-800
+      "
+    >
+      <div
+        x-data="{ open: false }"
+        class="
+          flex flex-col
+          max-w-screen-xl
+          px-4
+          mx-auto
+          md:items-center md:justify-between md:flex-row md:px-20
+          lg:px-20
+        "
+      >
+        <div class="p-4 flex flex-row items-center justify-between">
+          <a
+            href="#"
+            class="
+              text-lg
+              font-semibold
+              tracking-widest
+              text-hijau-custom
+              uppercase
+              rounded-lg
+              dark-mode:text-white
+              focus:outline-none focus:shadow-outline
+            "
+            ><img src="public/image/logo.png" alt="" class="w-16"
+          /></a>
+          <button
+            class="md:hidden rounded-lg focus:outline-none focus:shadow-outline"
+            @click="open = !open"
+          >
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+              <path
+                x-show="!open"
+                fill-rule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+              <path
+                x-show="open"
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <nav
+          :class="{'flex': open, 'hidden': !open}"
+          class="
+            flex-col flex-grow
+            pb-4
+            md:pb-0
+            hidden
+            md:flex md:justify-end md:flex-row
+          "
+        >
+          <a
+            class="
+              px-4
+              py-2
+              mt-2
+              text-sm
+              font-semibold
+              text-gray-900
+              bg-gray-200
+              rounded-lg
+              dark-mode:bg-gray-700
+              dark-mode:hover:bg-gray-600
+              dark-mode:focus:bg-gray-600
+              dark-mode:focus:text-white
+              dark-mode:hover:text-white
+              dark-mode:text-gray-200
+              md:mt-0
+              hover:text-gray-900
+              focus:text-gray-900
+              hover:bg-gray-200
+              focus:bg-gray-200 focus:outline-none focus:shadow-outline
+            "
+            href="#"
+            >Home</a
+          >
+          <a
+            class="
+              px-4
+              py-2
+              mt-2
+              text-sm
+              font-semibold
+              bg-transparent
+              rounded-lg
+              dark-mode:bg-transparent
+              dark-mode:hover:bg-gray-600
+              dark-mode:focus:bg-gray-600
+              dark-mode:focus:text-white
+              dark-mode:hover:text-white
+              dark-mode:text-gray-200
+              md:mt-0 md:ml-4
+              hover:text-gray-900
+              focus:text-gray-900
+              hover:bg-gray-200
+              focus:bg-gray-200 focus:outline-none focus:shadow-outline
+            "
+            href="#"
+            >Portfolio</a
+          >
+          <a
+            class="
+              px-4
+              py-2
+              mt-2
+              text-sm
+              font-semibold
+              bg-transparent
+              rounded-lg
+              dark-mode:bg-transparent
+              dark-mode:hover:bg-gray-600
+              dark-mode:focus:bg-gray-600
+              dark-mode:focus:text-white
+              dark-mode:hover:text-white
+              dark-mode:text-gray-200
+              md:mt-0 md:ml-4
+              hover:text-gray-900
+              focus:text-gray-900
+              hover:bg-gray-200
+              focus:bg-gray-200 focus:outline-none focus:shadow-outline
+            "
+            href="#"
+            >About</a
+          >
+          <a
+            class="
+              px-4
+              py-2
+              mt-2
+              text-sm
+              font-semibold
+              bg-transparent
+              rounded-lg
+              dark-mode:bg-transparent
+              dark-mode:hover:bg-gray-600
+              dark-mode:focus:bg-gray-600
+              dark-mode:focus:text-white
+              dark-mode:hover:text-white
+              dark-mode:text-gray-200
+              md:mt-0 md:ml-4
+              hover:text-gray-900
+              focus:text-gray-900
+              hover:bg-gray-200
+              focus:bg-gray-200 focus:outline-none focus:shadow-outline
+            "
+            href="#"
+            >Contact</a
+          >
+          <div
+            @click.away="open = false"
+            class="relative"
+            x-data="{ open: false }"
+          >
+            <button
+              @click="open = !open"
+              class="
+                flex flex-row
+                items-center
+                w-full
+                px-4
+                py-2
+                mt-2
+                text-sm
+                font-semibold
+                text-left
+                bg-transparent
+                rounded-lg
+                dark-mode:bg-transparent
+                dark-mode:focus:text-white
+                dark-mode:hover:text-white
+                dark-mode:focus:bg-gray-600
+                dark-mode:hover:bg-gray-600
+                md:w-auto md:inline md:mt-0 md:ml-4
+                hover:text-gray-900
+                focus:text-gray-900
+                hover:bg-gray-200
+                focus:bg-gray-200 focus:outline-none focus:shadow-outline
+              "
+            >
+              <span>Dropdown</span>
+              <svg
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                :class="{'rotate-180': open, 'rotate-0': !open}"
+                class="
+                  inline
+                  w-4
+                  h-4
+                  mt-1
+                  ml-1
+                  transition-transform
+                  duration-200
+                  transform
+                  md:-mt-1
+                "
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+            <div
+              x-show="open"
+              x-transition:enter="transition ease-out duration-100"
+              x-transition:enter-start="transform opacity-0 scale-95"
+              x-transition:enter-end="transform opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-75"
+              x-transition:leave-start="transform opacity-100 scale-100"
+              x-transition:leave-end="transform opacity-0 scale-95"
+              class="
+                absolute
+                right-0
+                w-full
+                mt-2
+                origin-top-right
+                rounded-md
+                shadow-lg
+                md:w-48
+              "
+            >
+              <div
+                class="
+                  px-2
+                  py-2
+                  bg-white
+                  rounded-md
+                  shadow
+                  dark-mode:bg-gray-800
+                "
+              >
+                <a
+                  class="
+                    block
+                    px-4
+                    py-2
+                    mt-2
+                    text-sm
+                    font-semibold
+                    bg-transparent
+                    rounded-lg
+                    dark-mode:bg-transparent
+                    dark-mode:hover:bg-gray-600
+                    dark-mode:focus:bg-gray-600
+                    dark-mode:focus:text-white
+                    dark-mode:hover:text-white
+                    dark-mode:text-gray-200
+                    md:mt-0
+                    hover:text-gray-900
+                    focus:text-gray-900
+                    hover:bg-gray-200
+                    focus:bg-gray-200 focus:outline-none focus:shadow-outline
+                  "
+                  href="#"
+                  >Link #1</a
+                >
+                <a
+                  class="
+                    block
+                    px-4
+                    py-2
+                    mt-2
+                    text-sm
+                    font-semibold
+                    bg-transparent
+                    rounded-lg
+                    dark-mode:bg-transparent
+                    dark-mode:hover:bg-gray-600
+                    dark-mode:focus:bg-gray-600
+                    dark-mode:focus:text-white
+                    dark-mode:hover:text-white
+                    dark-mode:text-gray-200
+                    md:mt-0
+                    hover:text-gray-900
+                    focus:text-gray-900
+                    hover:bg-gray-200
+                    focus:bg-gray-200 focus:outline-none focus:shadow-outline
+                  "
+                  href="#"
+                  >Link #2</a
+                >
+                <a
+                  class="
+                    block
+                    px-4
+                    py-2
+                    mt-2
+                    text-sm
+                    font-semibold
+                    bg-transparent
+                    rounded-lg
+                    dark-mode:bg-transparent
+                    dark-mode:hover:bg-gray-600
+                    dark-mode:focus:bg-gray-600
+                    dark-mode:focus:text-white
+                    dark-mode:hover:text-white
+                    dark-mode:text-gray-200
+                    md:mt-0
+                    hover:text-gray-900
+                    focus:text-gray-900
+                    hover:bg-gray-200
+                    focus:bg-gray-200 focus:outline-none focus:shadow-outline
+                  "
+                  href="#"
+                  >Link #3</a
+                >
+              </div>
+            </div>
+          </div>
+          <a
+            href="index.html"
+            class="
+              md:text-white
+              text-lg text-hijau-custom
+              hover:text-gray-600 hover:bg-green-300
+              md:bg-hijau-custom
+              px-3
+              py-1
+              rounded
+            "
+            >Sign up</a
+          >
+        </nav>
+      </div>
+    </div>
+    <!-- endnavbar -->
+
+    <!-- jumbotron -->
+    <div class="px-6 md:px-20">
+      <div>
+        <img src="public/image/image 12.jpg" alt="image" class="rounded mt-4" />
+      </div>
+    </div>
+    <!-- endjumbotron -->
+
+    <!-- about -->
+    <div
+      class="
+        grid grid-flow-row
+        md:grid-cols-12
+        gap-12
+        mt-4
+        md:mt-14
+        px-6
+        md:px-20
+      "
+    >
+      <div class="col-span-6 mt-4">
+        <div class="text-3xl text-gray-800">BADAN WAKAF AL QUR'AN</div>
+        <div class="mt-4 text-gray-600 leading-7">
+          Wakafquran adalah cara modern yang mudah dan praktis untuk membantu
+          orang lain. <br />
+          Salah satu ciri seorang muslim adalah senang membantu orang lain. Dia
+          tidak akan berdiam diri melihat kesulitan yang dialami oleh saudaranya
+          sekalipun ia tidak mengenalnya
+          <div class="mt-8">
+            <a href="#" class="bg-hijau-custom text-white rounded py-2 px-4"
+              >Wakaf Sekarang</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="col-span-6">
+        <img src="public/image/about.png" alt="" class="" />
+      </div>
+    </div>
+    <!-- endabout -->
+
+    <div class="bg-gradient-to-b from-white to-green-100 px-6 md:px-20 pb-10">
+      <!-- manfaat -->
+      <div class="mt-14">
+        <div class="text-center text-2xl font-medium">Manfaat Wakaf</div>
+        <!-- cards -->
+        <div class="md:flex justify-between mt-6">
+          <!-- card -->
+          <div class="rounded-lg w-full bg-white mr-4 shadow mt-4 md:mt-0">
+            <!-- header -->
+            <div
+              class="
+                bg-gradient-to-r
+                from-green-500
+                to-green-300
+                w-full
+                text-lg
+                font-medium
+                text-white
+                p-2
+                rounded-t-lg
+              "
+            >
+              Sunah
+            </div>
+            <!-- body -->
+            <div class="p-2">
+              <div class="text-gray-700">
+                Wakaf adalah ibadah sunnah yang dicontohkan oleh Nabi SAW dan
+                para sahabat beliau.
+              </div>
+            </div>
+          </div>
+          <!-- endcard -->
+          <!-- card -->
+          <div class="rounded-lg w-full bg-white mr-4 shadow mt-4 md:mt-0">
+            <!-- header -->
+            <div
+              class="
+                bg-gradient-to-r
+                from-purple-500
+                to-purple-300
+                text-white text-lg
+                font-medium
+                w-full
+                p-2
+                rounded-t-lg
+              "
+            >
+              Keuntungan
+            </div>
+            <!-- body -->
+            <div class="p-2">
+              <div class="text-gray-700">
+                Pahala mengalir terus menerus sekalipun yang berwakaf (wakif)
+                sudah meninggal dunia.
+              </div>
+            </div>
+          </div>
+          <!-- endcard -->
+          <!-- card -->
+          <div class="rounded-lg w-full bg-white mr-4 shadow mt-4 md:mt-0">
+            <!-- header -->
+            <div
+              class="
+                bg-gradient-to-r
+                from-red-500
+                to-red-300
+                text-white text-lg
+                font-medium
+                w-full
+                p-2
+                rounded-t-lg
+              "
+            >
+              Kebahagian
+            </div>
+            <!-- body -->
+            <div class="p-2">
+              <div class="text-gray-700">
+                Membahagiakan orang lain dengan bantuan yang kita berikan.
+              </div>
+            </div>
+          </div>
+          <!-- endcard -->
+        </div>
+        <!-- endcards -->
+      </div>
+      <!-- endmanfaat -->
+
+      <!-- program -->
+      <div class="mt-14">
+        <div class="text-center text-2xl font-medium">Program</div>
+        <div class="grid grid-flow-row grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+          <div>
+            <img src="public/image/program/Rectangle 29.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 30.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 31.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 32.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 33.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 34.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 35.jpg" alt="" />
+          </div>
+          <div>
+            <img src="public/image/program/Rectangle 36.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+      <!-- endprogram -->
+
+      <!-- daftar wakif -->
+      <div class="mt-14">
+        <div class="text-center text-2xl font-medium mb-4 md:mb-10">
+          Daftar Wakif
+        </div>
+        <div class="grid grid-flow-row grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <img src="public/image/Illustration Picture.svg" alt="image" />
+          </div>
+          <div>
+            <div class="grid grid-flow-row grid-cols-2 gap-6 md:mt-14">
+              <div class="col-span-1">
+                <div><label for="" class="text-lg">Nama</label></div>
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    class="
+                      focus:outline-none
+                      border
+                      rounded-full
+                      focus:text-green-700
+                      focus:ring-offset-purple-600
+                      focus:ring-2
+                      px-2
+                      py-1
+                      w-full
+                    "
+                  />
+                </div>
+              </div>
+              <div class="col-span-1">
+                <div><label for="" class="text-lg">Perusahaan</label></div>
+                <div class="mt-2">
+                  <input
+                    type="text"
+                    class="
+                      focus:outline-none
+                      border
+                      rounded-full
+                      focus:text-green-700
+                      focus:ring-offset-purple-600
+                      focus:ring-2
+                      px-2
+                      py-1
+                      w-full
+                    "
+                  />
+                </div>
+              </div>
+              <div class="col-span-1">
+                <div><label for="" class="text-lg">Email</label></div>
+                <div class="mt-2">
+                  <input
+                    type="email"
+                    class="
+                      focus:outline-none
+                      border
+                      rounded-full
+                      focus:text-green-700
+                      focus:ring-offset-purple-600
+                      focus:ring-2
+                      px-2
+                      py-1
+                      w-full
+                    "
+                  />
+                </div>
+              </div>
+              <div class="col-span-1">
+                <div><label for="" class="text-lg">No HP</label></div>
+                <div class="mt-2">
+                  <input
+                    type="email"
+                    class="
+                      focus:outline-none
+                      border
+                      rounded-full
+                      focus:text-green-700
+                      focus:ring-offset-purple-600
+                      focus:ring-2
+                      px-2
+                      py-1
+                      w-full
+                    "
+                  />
+                </div>
+              </div>
+              <div class="col-span-2">
+                <div>
+                  <a
+                    href="#"
+                    class="
+                      bg-gradient-to-r
+                      from-green-300
+                      to-green-500
+                      py-1
+                      px-6
+                      hover:from-pink-500 hover:to-yellow-500
+                      text-white
+                      rounded-full
+                    "
+                    >Submit</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- enddaftar wakif -->
+    </div>
+
+    <!--footer -->
+    <footer class="py-6 bg-hijau-custom">
+      <div class="text-center">
+        <div class="text-white">Jl. H. Hambasry Malang Nengah 0212207812</div>
+        <div class="text-white">Copyright 2021</div>
+      </div>
+    </footer>
+    <!--endfooter -->
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+  </body>
 </html>
